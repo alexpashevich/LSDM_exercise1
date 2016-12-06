@@ -1,1 +1,33 @@
-[0m[[0mdebug[0m] [0mJar uptodate: /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/tp-flickr_2.11-1.0.jar[0m
+[0m[[0minfo[0m] [0mPackaging /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/tp-flickr_2.11-1.0.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Demo$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Demo$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Ex2RDD.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Ex2RDD.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Ex1Dataframe.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Ex1Dataframe.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Demo$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Demo$.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Ex1Dataframe$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Ex1Dataframe$.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Demo$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Demo$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Picture.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Picture.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Picture$$anonfun$toString$1.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Picture$$anonfun$toString$1.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Demo.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Demo.class[0m
+[0m[[0mdebug[0m] [0m	uga[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Demo$$anonfun$3.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Demo$$anonfun$3.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Country.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Country.class[0m
+[0m[[0mdebug[0m] [0m	uga/tpspark/flickr/Ex2RDD$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/alexpashevich/MoSIG/LSDM/TpFlickrSkeleton/target/scala-2.11/classes/uga/tpspark/flickr/Ex2RDD$.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m

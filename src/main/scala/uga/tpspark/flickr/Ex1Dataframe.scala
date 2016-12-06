@@ -101,7 +101,7 @@ object Ex1Dataframe {
 
       flickrLicenseMeta.createOrReplaceTempView("flickrLicenseMeta")
       // flickrLicenseMeta.show()
-      val interestingPicturesND = spark.sql("select * from flickrMeta join flickrLicenseMeta on flickrMeta.license = flickrLicenseMeta.name where NonDerivative = 1")
+      val interestingPicturesND = spark.sql("select * from flickrMeta join flickrLicenseMeta on flickrMeta.license = flickrLicenseMeta.name where flickrMeta.license is not NULL and flickrMeta.longitude <> -1 and flickrMeta.latitude <> -1 and flickrLicenseMeta.NonDerivative = 1")
       interestingPicturesND.explain()
       interestingPicturesND.show()
 
@@ -109,20 +109,18 @@ object Ex1Dataframe {
       println(s"interestingPicturesNDCount = $interestingPicturesNDCount")
 
       // Question 1.6
-      interestingPictures.cache()
+      interestingPictures.registerTempTable("interestingPictures")
+      spark.sqlContext.cacheTable("interestingPictures")
+      
+      val interestingPicturesNDWithCache = spark.sql("select * from interestingPictures join flickrLicenseMeta on interestingPictures.license = flickrLicenseMeta.name")
+      interestingPicturesNDWithCache.explain()
 
-      val interestingPicturesCached = spark.sql("select * from flickrMeta where license is not NULL and longitude <> -1 and latitude <> -1")
-      // interestingPictures.explain()
-      interestingPicturesCached.explain()
+      // Question 1.7
+      interestingPicturesNDWithCache.write.
+                                    format("com.databricks.spark.csv").
+                                    option("header", "true").
+                                    save("result.csv")
 
-      // flickrLicenseMeta.show()
-
-
-      // val notInterestingPoints = spark.sql("select license from flickrMeta")
-      // val notInterestingPointsCount = notInterestingPoints.count()
-
-      // println(s"interestingPointsCount, $interestingPointsCount")
-      // println(s"notInterestingPointsCount, $notInterestingPointsCount")
 
     } catch {
       case e: Exception => throw e
