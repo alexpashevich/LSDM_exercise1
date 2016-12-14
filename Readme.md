@@ -76,6 +76,53 @@ interestingPicturesNDWithCache.write.
 ## Processing data using RDDs
 ### Question 1
 
+The following Spark command can be used to display the 5 lines of the RDD the number of elements in the RDD.
+```java
+// originalFlickrMeta: RDD[String]
+originalFlickrMeta.take(5)
+originalFlickrMeta.count()
+```
+
+### Question 2
+The following Spark command can be used to transform RDD[String] in RDD[Picture] using Picture class.
+```java
+//originalFlickrMeta: RDD[String]
+val pictures: RDD[Picture] = originalFlickrMeta.map(row => new Picture(row.split("\t")))
+```
+The following Spark command can be used to filter interesting pictures based on valid country and tags fields.
+```java
+val interstingPics: RDD[Picture] pictures.filter(pic => pic.hasValidCountry & pic.hasTags)
+```
+### Question 3
+The following Spark command can be used to group images by country.
+```java
+val groupByCountry = interstingPics.groupBy(pic => pic.c)
+// groupByCountry: [(Country, Iterable[Picture])]
+```
+### Question 4
+The following Spark command can be used to process list so that first element is a country, and the second element is the list of tags used on pictures.
+```java
+val countriesTags = groupByCountry.map(x => (x._1, x._2.flatMap(pic => pic.userTags)))
+// countriesTags: [(Country, Iterable[String])]
+```
+### Question 5
+The following Spark command can be used to create mapping between tabs and number of their occurances.
+```java
+val tagsCount = countriesTags.map(x => (x._1, x._2.groupBy(identity).mapValues(_.size).map(identity)))
+// tagsCount: [(Country, Map[String, Int])]
+```
+### Question 6
+To not reduce the size of RDD from the very beginning and leverage the parallelization we can proceed in the following way. First we will do a map of all images to transform it to the following form: key = country, value = list of tuples of tags and the number 1 sorted in the lexicographical order.
+```java
+val intermRDD = interstingPics.map(x => (x.c, x.userTags.sorted.map(x => (x, 1))))
+```
+For example, if we have a picture from "Peru" with tags "Machu-Picchu" and "Andes", we will transform it to the following form: {key = "Peru", values = [("Andes", 1), ("Machu-Picchu", 1)]}. Thus, we will have as many values in the transformed RDD as the number of images in the database and tags are stored in a proper form to make a final reduce by key. Next we perform the reduceByKey function where for every couple of elements of RDD with the same key we sum frequences for repeating tags and concatenate with non-repeating keeping the lexicographical order.
+```java
+val finalRDD = interestingTags.reduceByKey((a, b) => sumOrConcatTags(a, b))
+```
+We can efficiently perform the last operation as we sorted the tags alphabetically beforehand. In the end we obtain the RDD of type RDD[(Country, Map[String, Int])] which is equivalent to the previous question. In contrast to the previous questions, we efficienlty used the parallelization even if tje number of countries is arbitrary small.
+
+
 
 
 
